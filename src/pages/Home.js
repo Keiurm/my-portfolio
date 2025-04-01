@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FiArrowRight, FiCode, FiLayers, FiDatabase, FiSmartphone } from 'react-icons/fi';
-import homeBackground from './home.jpg';
-import { FiCalendar, FiBookOpen, FiAward} from 'react-icons/fi';
+import homeBackground from '../images/home.jpg';
+import { FiCalendar, FiBookOpen, FiAward } from 'react-icons/fi';
+import me from '../images/me.jpeg';
 
 // スタイルコンポーネント
 const Hero = styled.section`
@@ -213,7 +214,7 @@ const Home = () => {
           <SectionTitle>自己紹介</SectionTitle>
           <AboutContent>
             <AboutImage>
-              <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80" alt="Profile" />
+              <img src= {me} alt="Profile" />
             </AboutImage>
             <AboutText>
               <h3>氏名</h3>

@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FiGithub, FiExternalLink, FiFilter } from 'react-icons/fi';
-
+import cherrypic from '../images/CherryPic.png';
+import vr from '../images/VR.png';
+import sa from '../images/2D_action.jpeg';
+import block from '../images/Block.jpeg';
+import chatbot from '../images/chatbot.jpeg';
+import mnist from '../images/mnist.png';
 // スタイルコンポーネント
 const PageContainer = styled.div`
   padding-top: 80px;
@@ -173,62 +178,6 @@ const ProjectLink = styled.a`
   }
 `;
 
-const ProjectDetailSection = styled.section`
-  padding: 6rem 0;
-  background-color: #f8f9fa;
-`;
-
-const FeaturedProject = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-  margin-bottom: 6rem;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-  
-  &:last-child {
-    margin-bottom: 0;
-  }
-  
-  &:nth-child(even) {
-    direction: rtl;
-    
-    @media (max-width: 768px) {
-      direction: ltr;
-    }
-  }
-`;
-
-const FeaturedImage = styled.div`
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-`;
-
-const FeaturedContent = styled.div`
-  direction: ltr;
-  
-  h3 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: ${props => props.theme.colors.dark};
-  }
-  
-  p {
-    margin-bottom: 1.5rem;
-    color: #666;
-    line-height: 1.8;
-  }
-`;
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
@@ -236,64 +185,60 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'コミュニティ支援アプリ',
+      title: 'Cherry Pic',
       category: 'Webアプリ',
-      image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80',
-      description: '地域コミュニティのための情報共有プラットフォーム。ユーザー同士が地域のイベント、ニュース、支援要請などを共有できます。',
-      techStack: ['React', 'Node.js', 'Express', 'MongoDB'],
-      githubLink: 'https://github.com',
-      liveLink: 'https://example.com'
+      image: cherrypic,
+      description: '【「夢」を画像化し、 気軽にシェアできるWebアプリケーション】PR TIMES HACKATHON 2025 Winterにて制作。今回のハッカソンの開発テーマは PR TIMES が提唱している April Dream を軸に「夢の発信を支援する Web サービスの開発」でした。',
+      techStack: ['React', 'Python(Flask)', 'supabase','OpenAI API','Docker'],
+      githubLink: 'https://github.com/f-tash/Cherry-Pic',
+      liveLink: 'https://f-tash.github.io/Cherry-Pic/'
     },
     {
       id: 2,
-      title: 'ポートフォリオサイト',
-      category: 'Webサイト',
-      image: 'https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80',
-      description: '自分のスキルとプロジェクトを紹介するための個人ポートフォリオサイト。レスポンシブデザインと滑らかなアニメーションを特徴としています。',
-      techStack: ['React', 'Styled Components', 'Firebase'],
-      githubLink: 'https://github.com',
-      liveLink: 'https://example.com'
+      title: 'OpenAIのAPIを利用したチャットボット',
+      category: 'Webアプリ',
+      image: chatbot,
+      description: 'OpenAI APIを用いたChatBot Webアプリケーション。ChatGPTの有料プランに加入していないため、回数上限に達した際にo3miniなどのモデルとやりとりするために作成。',
+      techStack: ['Bootstrap5', 'Python(Flask)', 'OpenAI API', 'Docker'],
+      githubLink: 'https://github.com/Keiurm/ChatBot',
     },
     {
       id: 3,
-      title: 'タスク管理アプリ',
+      title: '手書き数字をニューラルネットワークで認識するWebアプリ',
       category: 'Webアプリ',
-      image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80',
-      description: 'シンプルで使いやすいタスク管理ツール。タスクの追加、編集、削除、並び替え、フィルタリング機能を搭載しています。',
-      techStack: ['Vue.js', 'Vuex', 'Firebase'],
-      githubLink: 'https://github.com',
-      liveLink: 'https://example.com'
+      image: mnist,
+      description: 'MNISTの手書き文字画像データセットを用いて、ニューラルネットワークを学習させ、手書き数字を認識するWebアプリケーション。画像入力にも対応しており、手書きの数字を描くことで認識結果を確認できます。',
+      techStack: ['Bootstrap5', 'Python(Flask)', 'OpenAI API', 'Docker'],
+      githubLink: 'https://github.com/Keiurm/MNIST-frontend',
     },
     {
       id: 4,
-      title: '天気予報アプリ',
-      category: 'モバイルアプリ',
-      image: 'https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixlib=rb-1.2.1&auto=format&fit=crop&w=1551&q=80',
-      description: '現在地や指定した場所の天気予報を表示するモバイルアプリ。5日間の予報、湿度、風速などの情報を提供します。',
-      techStack: ['React Native', 'OpenWeather API', 'Redux'],
-      githubLink: 'https://github.com',
-      liveLink: null
+      title: 'VR作品「追う者、追われる物」',
+      category: 'その他',
+      image: vr,
+      description: '「ソフトウェア開発演習II」の最終課題。Blenderのスクリプト機能でPythonのみを使用し作成。',
+      techStack: ['Blender','Python'],
+      githubLink: 'https://github.com/Keiurm/Software-Development-II-public',
+      liveLink: 'https://store.hacosco.com/movies/e68e01e5-714f-4ef6-a37c-ad3f0241fec8'
     },
     {
       id: 5,
-      title: 'レシピ検索サイト',
-      category: 'Webサイト',
-      image: 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
-      description: '材料や料理名から簡単にレシピを検索できるWebサイト。ユーザーはお気に入りのレシピを保存することもできます。',
-      techStack: ['HTML', 'CSS', 'JavaScript', 'Recipe API'],
+      title: 'ブロック崩し',
+      category: 'ゲーム',
+      image: block,
+      description: 'ブロック崩しゲーム。',
+      techStack: ['Unity', 'C#'],
       githubLink: 'https://github.com',
-      liveLink: 'https://example.com'
     },
     {
       id: 6,
-      title: 'オンライン学習プラットフォーム',
-      category: 'Webアプリ',
-      image: 'https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      description: 'プログラミングの学習コンテンツを提供するオンラインプラットフォーム。動画講義、クイズ、実践課題を含みます。',
-      techStack: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
-      githubLink: 'https://github.com',
-      liveLink: 'https://example.com'
-    }
+      title: 'スクロールアクション',
+      category: 'ゲーム',
+      image: sa,
+      description: 'マリオのような横スクロールアクションゲーム。',
+      techStack: ['Unity', 'C#'],
+      githubLink: 'https://github.com/Keiurm/N-Scrollaction',
+    },
   ];
   
   const filteredProjects = filter === 'all' 
@@ -308,9 +253,9 @@ const Projects = () => {
     <PageContainer>
       <HeroSection>
         <Container>
-          <PageTitle>プロジェクト</PageTitle>
+          <PageTitle>制作物</PageTitle>
           <PageDescription>
-            これまでに取り組んできた様々なプロジェクトを紹介します。Webアプリケーション、Webサイト、モバイルアプリなど、幅広い開発経験があります。
+            これまでに作成した制作物の一部を紹介します。順次更新していきます。
           </PageDescription>
         </Container>
       </HeroSection>
@@ -331,16 +276,16 @@ const Projects = () => {
               Webアプリ
             </FilterButton>
             <FilterButton 
-              active={filter === 'Webサイト'} 
-              onClick={() => handleFilterChange('Webサイト')}
+              active={filter === 'ゲーム'} 
+              onClick={() => handleFilterChange('ゲーム')}
             >
-              Webサイト
+              ゲーム
             </FilterButton>
             <FilterButton 
-              active={filter === 'モバイルアプリ'} 
-              onClick={() => handleFilterChange('モバイルアプリ')}
+              active={filter === 'その他'} 
+              onClick={() => handleFilterChange('その他')}
             >
-              モバイルアプリ
+              その他
             </FilterButton>
           </FilterContainer>
           
@@ -364,7 +309,7 @@ const Projects = () => {
                     </ProjectLink>
                     {project.liveLink && (
                       <ProjectLink href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                        <FiExternalLink /> Live Demo
+                        <FiExternalLink /> Webサイト
                       </ProjectLink>
                     )}
                   </ProjectLinks>
@@ -375,63 +320,6 @@ const Projects = () => {
         </Container>
       </ProjectsSection>
       
-      <ProjectDetailSection>
-        <Container>
-          <SectionTitle>注目プロジェクト</SectionTitle>
-          
-          <FeaturedProject>
-            <FeaturedImage>
-              <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80" alt="Featured Project" />
-            </FeaturedImage>
-            <FeaturedContent>
-              <h3>コミュニティ支援アプリ</h3>
-              <p>
-                学内ハッカソンで開発し、最優秀賞を受賞したプロジェクトです。地域のイベントや支援要請を共有するためのプラットフォームを作成しました。
-              </p>
-              <p>
-                技術スタックとしては、フロントエンドにReact、バックエンドにNode.jsとExpress、データベースにMongoDBを使用しています。認証機能、リアルタイム更新、地図表示機能などを実装しました。
-              </p>
-              <p>
-                このプロジェクトを通じて、チームでの協働、MVPの設計、ユーザーのフィードバックに基づいた改善など、実践的な開発プロセスを学ぶことができました。
-              </p>
-              <ProjectLinks>
-                <ProjectLink href="https://github.com" target="_blank" rel="noopener noreferrer">
-                  <FiGithub /> GitHub
-                </ProjectLink>
-                <ProjectLink href="https://example.com" target="_blank" rel="noopener noreferrer">
-                  <FiExternalLink /> Live Demo
-                </ProjectLink>
-              </ProjectLinks>
-            </FeaturedContent>
-          </FeaturedProject>
-          
-          <FeaturedProject>
-            <FeaturedImage>
-              <img src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Featured Project" />
-            </FeaturedImage>
-            <FeaturedContent>
-              <h3>オンライン学習プラットフォーム</h3>
-              <p>
-                卒業研究の一環として開発した、プログラミング学習のためのオンラインプラットフォームです。初心者向けのプログラミング講座を提供しています。
-              </p>
-              <p>
-                技術スタックとしては、フロントエンドにReact、バックエンドにNode.js、データベースにPostgreSQLを使用しています。AWSのS3に動画コンテンツを保存し、EC2でホスティングしています。
-              </p>
-              <p>
-                このプロジェクトでは特に、ユーザー体験設計とコンテンツ管理システムの実装に力を入れました。講師が簡単にコンテンツをアップロードでき、学習者が進捗を追跡できる機能を実装しています。
-              </p>
-              <ProjectLinks>
-                <ProjectLink href="https://github.com" target="_blank" rel="noopener noreferrer">
-                  <FiGithub /> GitHub
-                </ProjectLink>
-                <ProjectLink href="https://example.com" target="_blank" rel="noopener noreferrer">
-                  <FiExternalLink /> Live Demo
-                </ProjectLink>
-              </ProjectLinks>
-            </FeaturedContent>
-          </FeaturedProject>
-        </Container>
-      </ProjectDetailSection>
     </PageContainer>
   );
 };
